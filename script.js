@@ -1,0 +1,4 @@
+window.__phEl=(txt,label,isVideo)=>{const d=document.createElement("div");d.className="ph";d.innerHTML=(isVideo?'<span class="play">▶</span>':'')+txt+'<span class="tag">'+label+'</span>';return d;};
+document.addEventListener("click",e=>{const b=e.target.closest(".snav button");if(b){const t=b.closest(".slider").querySelector(".strack");t.scrollBy({left:parseInt(b.dataset.dir,10)*t.clientWidth*0.75,behavior:"smooth"});}});
+const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
